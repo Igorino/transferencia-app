@@ -10,14 +10,18 @@ import { MatTableModule } from '@angular/material/table';
   selector: 'app-root',
   template: `
     <mat-toolbar color="primary">
-      <span>{{ title }}</span>
+      <div class="container">
+        <div class="title-container">
+          <span>{{ title }}</span>
+        </div>
+        <div class="button-container">
+          <button mat-button (click)="navegarPara('/')">Menu Inicial</button>
+          <button mat-button (click)="navegarPara('/agendar')">Agendar Transferência</button>
+          <button mat-button (click)="navegarPara('/extrato')">Extrato</button>
+        </div>
+      </div>
     </mat-toolbar>
     <mat-sidenav-container>
-      <mat-sidenav mode="side" opened>
-        <button mat-button (click)="navegarPara('/')">Menu Inicial</button>
-        <button mat-button (click)="navegarPara('/agendar')">Agendar Transferência</button>
-        <button mat-button (click)="navegarPara('/extrato')">Extrato</button>
-      </mat-sidenav>
       <mat-sidenav-content>
         <router-outlet></router-outlet>
       </mat-sidenav-content>

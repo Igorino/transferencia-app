@@ -1,18 +1,24 @@
 /* app.component.scss */
 
-mat-sidenav {
-    display: flex;
-    flex-direction: column;
-    width: 200px; /* Ajuste a largura conforme necessário */
-  }
-  
-  mat-sidenav button {
-    margin: 8px 0; /* Adiciona um espaço entre os botões */
-    width: 100%; /* Faz com que os botões ocupem toda a largura do sidenav */
-  }
-  
-  mat-sidenav-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
+.container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.title-container span {
+  font-size: 24px; 
+  font-weight: bold;
+  color: rgb(0, 0, 0); 
+}
+
+.button-container button {
+  margin: 5px 0; 
+}
+
+.mat-toolbar {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  height: 100px; /* Garante que o container ocupe toda a altura da viewport */
+}
