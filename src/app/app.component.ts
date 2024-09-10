@@ -6,7 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 
-
 @Component({
   selector: 'app-root',
   template: `
