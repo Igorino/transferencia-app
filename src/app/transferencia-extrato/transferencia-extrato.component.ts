@@ -3,23 +3,28 @@ import { TransferenciaService, Transferencia } from '../service/transferencia.se
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { MatListModule } from '@angular/material/list'; 
+import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-transferencia-extrato',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     HttpClientModule,
     MatListModule,
-    MatButtonModule],
+    MatButtonModule,
+    MatTableModule
+  ],
   templateUrl: './transferencia-extrato.component.html',
-  styleUrl: './transferencia-extrato.component.scss',
+  styleUrls: ['./transferencia-extrato.component.scss'],
   providers: [TransferenciaService]
 })
 export class TransferenciaExtratoComponent implements OnInit {
-  transferencias: Transferencia[] = [];
+  displayedColumns: string[] = ['contaOrigem', 'contaDestino', 'valor', 'dataTransferencia', 'taxa'];
+  transferencias = new MatTableDataSource<Transferencia>();
 
   constructor(private transferenciaService: TransferenciaService, private router: Router) {}
 
@@ -29,7 +34,7 @@ export class TransferenciaExtratoComponent implements OnInit {
 
   carregarExtrato() {
     this.transferenciaService.listarTransferencias().subscribe({
-      next: (data) => this.transferencias = data,
+      next: (data) => this.transferencias.data = data,
       error: (err) => console.error('Erro ao carregar o extrato', err)
     });
   }

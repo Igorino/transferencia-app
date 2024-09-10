@@ -4,6 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-root',
@@ -28,7 +30,8 @@ import { CommonModule } from '@angular/common';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
-    CommonModule
+    CommonModule,
+    MatTableModule
   ],
   styleUrls: ['./app.component.scss'] // Adicione esta linha se o estilo estiver em um arquivo separado
 })
