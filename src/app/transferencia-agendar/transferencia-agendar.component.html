@@ -1,1 +1,31 @@
-<p>transferencia-agendar works!</p>
+<div class="container">
+    <h2>Agendar Transferência</h2>
+    <form (ngSubmit)="agendarTransferencia()" #transferenciaForm="ngForm">
+      <div class="form-group">
+        <label for="contaOrigem">Conta de Origem</label>
+        <input type="text" id="contaOrigem" [(ngModel)]="transferencia.contaOrigem" name="contaOrigem" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="contaDestino">Conta de Destino</label>
+        <input type="text" id="contaDestino" [(ngModel)]="transferencia.contaDestino" name="contaDestino" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="valor">Valor</label>
+        <input type="number" id="valor" [(ngModel)]="transferencia.valor" name="valor" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="dataTransferencia">Data da Transferência</label>
+        <input type="date" id="dataTransferencia" [(ngModel)]="transferencia.dataTransferencia" name="dataTransferencia" class="form-control" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!transferenciaForm.valid">Agendar</button>
+    </form>
+  
+    <div *ngIf="mensagem" class="alert alert-info mt-3">
+      {{ mensagem }}
+    </div>
+  </div>
+  

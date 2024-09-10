@@ -1,12 +1,31 @@
 import { Component } from '@angular/core';
+import { TransferenciaService, Transferencia } from '../service/transferencia.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-transferencia-agendar',
-  standalone: true,
-  imports: [],
   templateUrl: './transferencia-agendar.component.html',
-  styleUrl: './transferencia-agendar.component.scss'
+  styleUrls: ['./transferencia-agendar.component.scss'],
+  standalone: true,
+  imports: [
+    HttpClientModule,
+    CommonModule,
+    FormsModule
+  ],
+  providers: [TransferenciaService]
 })
 export class TransferenciaAgendarComponent {
+  transferencia: Transferencia = { contaOrigem: '', contaDestino: '', valor: 0, dataTransferencia: '' };
+  mensagem: string = '';
 
+  constructor(private transferenciaService: TransferenciaService) {}
+
+  agendarTransferencia() {
+    this.transferenciaService.agendarTransferencia(this.transferencia).subscribe({
+      next: (response: any) => this.mensagem = 'Transferência agendada com sucesso!',
+      error: (err: { message: string; }) => this.mensagem = 'Erro ao agendar a transferência: ' + err.message
+    });
+  }
 }
