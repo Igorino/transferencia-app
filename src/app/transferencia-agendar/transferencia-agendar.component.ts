@@ -25,7 +25,13 @@ export class TransferenciaAgendarComponent {
   agendarTransferencia() {
     this.transferenciaService.agendarTransferencia(this.transferencia).subscribe({
       next: (response: any) => this.mensagem = 'Transferência agendada com sucesso!',
-      error: (err: { message: string; }) => this.mensagem = 'Erro ao agendar a transferência: ' + err.message
+      error: (err: any) => {
+        if (err.error) {
+          this.mensagem = 'Erro ao agendar a transferência: ' + err.error;
+        } else {
+          this.mensagem = 'Erro ao agendar a transferência: ' + err.message;
+        }
+      }
     });
   }
 }
