@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransferenciaService, Transferencia } from '../service/transferencia.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transferencia-extrato',
@@ -14,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class TransferenciaExtratoComponent implements OnInit {
   transferencias: Transferencia[] = [];
 
-  constructor(private transferenciaService: TransferenciaService) {}
+  constructor(private transferenciaService: TransferenciaService, private router: Router) {}
 
   ngOnInit(): void {
     this.carregarExtrato();
@@ -25,5 +26,9 @@ export class TransferenciaExtratoComponent implements OnInit {
       next: (data) => this.transferencias = data,
       error: (err) => console.error('Erro ao carregar o extrato', err)
     });
+  }
+
+  navegarParaMenu() {
+    this.router.navigate(['/']);
   }
 }

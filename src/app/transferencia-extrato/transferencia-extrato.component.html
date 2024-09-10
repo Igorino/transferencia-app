@@ -1,4 +1,7 @@
 <div class="container">
+  <div>
+    <button (click)="navegarParaMenu()">Voltar para Menu</button>
+  </div>
     <h2>Extrato de Transferências</h2>
     <div *ngIf="transferencias.length > 0; else empty">
       <table class="table table-striped">

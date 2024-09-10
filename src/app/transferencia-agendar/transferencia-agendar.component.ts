@@ -3,6 +3,7 @@ import { TransferenciaService, Transferencia } from '../service/transferencia.se
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transferencia-agendar',
@@ -20,7 +21,7 @@ export class TransferenciaAgendarComponent {
   transferencia: Transferencia = { contaOrigem: '', contaDestino: '', valor: 0, dataTransferencia: '' };
   mensagem: string = '';
 
-  constructor(private transferenciaService: TransferenciaService) {}
+  constructor(private transferenciaService: TransferenciaService, private router: Router) {}
 
   agendarTransferencia() {
     this.transferenciaService.agendarTransferencia(this.transferencia).subscribe({
@@ -33,5 +34,9 @@ export class TransferenciaAgendarComponent {
         }
       }
     });
+  }
+
+  navegarParaMenu() {
+    this.router.navigate(['/']);
   }
 }
