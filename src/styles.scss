@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+@import "../node_modules/@angular/material/prebuilt-themes/azure-blue.css";
+
+.container {
+  padding: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav-content {
+  padding: 16px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

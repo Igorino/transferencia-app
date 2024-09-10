@@ -3,11 +3,17 @@ import { TransferenciaService, Transferencia } from '../service/transferencia.se
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MatListModule } from '@angular/material/list'; 
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-transferencia-extrato',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [
+    CommonModule, 
+    HttpClientModule,
+    MatListModule,
+    MatButtonModule],
   templateUrl: './transferencia-extrato.component.html',
   styleUrl: './transferencia-extrato.component.scss',
   providers: [TransferenciaService]
