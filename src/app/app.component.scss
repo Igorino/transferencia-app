@@ -1,0 +1,18 @@
+/* app.component.scss */
+
+mat-sidenav {
+    display: flex;
+    flex-direction: column;
+    width: 200px; /* Ajuste a largura conforme necessário */
+  }
+  
+  mat-sidenav button {
+    margin: 8px 0; /* Adiciona um espaço entre os botões */
+    width: 100%; /* Faz com que os botões ocupem toda a largura do sidenav */
+  }
+  
+  mat-sidenav-content {
+    display: flex;
+    flex-direction: column;
+  }
+  

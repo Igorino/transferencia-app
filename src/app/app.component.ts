@@ -13,9 +13,9 @@ import { CommonModule } from '@angular/common';
     </mat-toolbar>
     <mat-sidenav-container>
       <mat-sidenav mode="side" opened>
-      <button mat-button (click)="navegarPara('/')">Menu</button>
-      <button mat-button (click)="navegarPara('/agendar')">Agendar Transferência</button>
-      <button mat-button (click)="navegarPara('/extrato')">Extrato</button>
+        <button mat-button (click)="navegarPara('/')">Menu Inicial</button>
+        <button mat-button (click)="navegarPara('/agendar')">Agendar Transferência</button>
+        <button mat-button (click)="navegarPara('/extrato')">Extrato</button>
       </mat-sidenav>
       <mat-sidenav-content>
         <router-outlet></router-outlet>
@@ -28,7 +28,9 @@ import { CommonModule } from '@angular/common';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
-    CommonModule]
+    CommonModule
+  ],
+  styleUrls: ['./app.component.scss'] // Adicione esta linha se o estilo estiver em um arquivo separado
 })
 export class AppComponent {
   title = 'Transferência App';
